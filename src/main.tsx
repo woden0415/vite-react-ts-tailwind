@@ -6,6 +6,9 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { StoreProvider } from 'easy-peasy'
+import store from "./store/index.store.ts";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +21,8 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <StoreProvider store={store}>
+      <RouterProvider router={router} />
+    </StoreProvider>
   </React.StrictMode>,
 )
